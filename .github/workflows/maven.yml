@@ -1,0 +1,15 @@
+name: run test in PowerShell 
+on: push
+
+jobs:
+  api-test-job:
+    name: login in pwsh
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: test POST-API-test in pwsh
+        shell: pwsh
+        run: |
+         mvn clean test -Dgroups="login"
+ 
