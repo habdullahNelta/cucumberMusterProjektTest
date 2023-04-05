@@ -32,7 +32,7 @@ public class DriverFactory {
 
         logger(Level.INFO,"browser value is: "+browser);
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+     //   options.addArguments("--headless");
         options.addArguments("--remote-allow-origins=*");
         if (browser.equals("chrome")) {
             WebDriverManager.chromedriver().setup();
