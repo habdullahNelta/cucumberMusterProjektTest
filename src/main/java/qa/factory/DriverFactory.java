@@ -8,6 +8,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
 
 public class DriverFactory {
 
@@ -38,12 +40,12 @@ public class DriverFactory {
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
               ///////// headless for jenkins
-           // FirefoxOptions o = new FirefoxOptions();
-            //o.setHeadless(true);
-            //tlDriver.set(new FirefoxDriver(o));
+            FirefoxOptions o = new FirefoxOptions();
+            o.setHeadless(true);
+            tlDriver.set(new FirefoxDriver(o));
             ///////
             // not headless
-            tlDriver.set(new FirefoxDriver(o));
+          // tlDriver.set(new FirefoxDriver());
         } else if (browser.equals("safari")) {
             tlDriver.set(new SafariDriver());
         } else {
