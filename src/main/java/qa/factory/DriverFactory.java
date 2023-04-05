@@ -37,7 +37,13 @@ public class DriverFactory {
             tlDriver.set(new ChromeDriver(options));
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            tlDriver.set(new FirefoxDriver());
+              ///////// headless for jenkins
+            FirefoxOptions o = new FirefoxOptions();
+            o.setHeadless(true);
+            tlDriver.set(new FirefoxDriver(o));
+            ///////
+            // not headless
+           // tlDriver.set(new FirefoxDriver(o));
         } else if (browser.equals("safari")) {
             tlDriver.set(new SafariDriver());
         } else {
