@@ -31,12 +31,15 @@ public class DriverFactory {
 
 
         logger(Level.INFO,"browser value is: "+browser);
-        ChromeOptions options = new ChromeOptions();
-     //   options.addArguments("--headless");
-        options.addArguments("--remote-allow-origins=*");
+     
         if (browser.equals("chrome")) {
-            WebDriverManager.chromedriver().setup();
+            
+               WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+              options.addArguments("--headless");
+            options.addArguments("--remote-allow-origins=*");
             tlDriver.set(new ChromeDriver(options));
+            
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
               ///////// headless for jenkins
